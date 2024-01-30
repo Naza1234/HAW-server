@@ -51,7 +51,7 @@ exports.upload=multer({
 exports.getVideosByProductId = async (req, res) => {
     try {
         const { productId } = req.params;
-        const videos = await VideoModel.find({ productId });
+        const videos = await VideoModel.find({ productId:productId });
 
         res.status(200).json(videos);
     } catch (error) {

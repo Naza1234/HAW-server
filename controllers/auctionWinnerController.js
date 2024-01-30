@@ -38,7 +38,7 @@ exports.deleteAuctionWinnerById = async (req, res) => {
 exports.getAuctionWins = async (req, res) => {
   try {
     const { id } = req.params;
-    const auctionWinner = await AuctionWinner.find(id)
+    const auctionWinner = await AuctionWinner.find({userId:id})
     const Products=[]
     for (const iterator of auctionWinner) {
        const product=await products.findOne({_id :iterator.productId});

@@ -26,7 +26,7 @@ exports.getAllChats = async (req, res) => {
 exports.getChatsByProductId = async (req, res) => {
     try {
         const productId = req.params.id;
-        const chats = await ChatModel.find({ productId });
+        const chats = await ChatModel.find({ productId:productId });
 
         res.status(200).json(chats);
     } catch (error) {

@@ -47,7 +47,7 @@ exports.upload=multer({
 exports.getProductImagesByProductId = async (req, res) => {
     try {
         const { productId } = req.params;
-        const productImages = await ProductImageModel.find({ productId });
+        const productImages = await ProductImageModel.find({ productId:productId });
 
         res.status(200).json(productImages);
     } catch (error) {
