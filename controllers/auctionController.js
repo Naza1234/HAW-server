@@ -23,6 +23,16 @@ exports.getAllAuctions = async (req, res) => {
     }
 };
 
+
+exports.getAllAuctionsById = async (req, res) => {
+    try {
+        const auctions = await AuctionModel.find({productId: req.params.id});
+        res.status(200).json(auctions);
+    } catch (error) {
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
 exports.getSingleAuction = async (req, res) => {
     try {
         const auctionId = req.params.id;

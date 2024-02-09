@@ -5,6 +5,7 @@ const auctionController = require('../controllers/auctionController');
 // Routes for auction operations
 router.post('/auctions', auctionController.createAuction);
 router.get('/auctions', auctionController.getAllAuctions);
+router.get('/auctions/byId/:id', auctionController.getAllAuctionsById);
 router.get('/auctions/:id', auctionController.getSingleAuction);
 router.put('/auctions/:id', auctionController.updateSingleAuction);
 router.delete('/auctions/:id', auctionController.deleteSingleAuction);
