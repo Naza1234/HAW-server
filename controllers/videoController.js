@@ -39,7 +39,7 @@ exports.upload=multer({
     storage:fileStorage,
      limits:{fileSize: '10000000'},
     fileFilter: (req, file, callback) => {
-        const acceptableExtensions = ['*'];
+        const acceptableExtensions = ['gif', 'mp4', 'avi', 'mov', 'mkv', 'webm'];
         if (!(acceptableExtensions.some(extension => 
             path.extname(file.originalname).toLowerCase() === `.${extension}`)
         )) {
