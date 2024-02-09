@@ -27,7 +27,7 @@ const ProductSchema = mongoose.Schema({
         required: true
     },
     ownersId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: 'User',
         required: true,
         default:"loading..."
