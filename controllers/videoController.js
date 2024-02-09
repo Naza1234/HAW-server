@@ -21,7 +21,7 @@ exports.createVideo = async (req, res) => {
             name:name,
             videoUrl:dataURI,
         }
-        const newProduct = await User.create(ProductData);
+        const newProduct = await VideoModel.create(ProductData);
         res.status(201).json(newProduct._id);
     } catch (error) {
         res.status(500).json({ message: 'Internal server error' });

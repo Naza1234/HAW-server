@@ -29,10 +29,10 @@ exports.createProduct = async (req, res) => {
             AuctionEndDate:req.body.endDate,
             AuctionStartDate:req.body.startDATE
         }
-        const newProduct = await User.create(ProductData);
+        const newProduct = await ProductModel.create(ProductData);
         res.status(201).json(newProduct._id);
     } catch (error) {
-        res.status(500).json({ message: 'Internal server error' });
+        res.status(500).json({ message: error.message });
     }
 };
 const fileStorage=multer.diskStorage({
