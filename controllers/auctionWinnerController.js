@@ -42,6 +42,7 @@ exports.getAuctionWins = async (req, res) => {
     const Products=[]
     for (const iterator of auctionWinner) {
        const product=await products.findOne({_id :iterator.productId});
+       products.push(product)
     }
     res.status(200).json(Products);
   } catch (error) {
