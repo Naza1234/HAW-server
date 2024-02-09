@@ -56,7 +56,7 @@ exports.getAuctionWin = async (req, res) => {
     const PodParm={
       ownersId:auctionWinner.userId,
     }
-    await ProductModel.findByIdAndUpdate(auctionWinner.productId,PodParm, { new: true });
+    var product = await products.findByIdAndUpdate(auctionWinner.productId,PodParm, { new: true });
     const params={
       userId:auctionWinner.userId,
       productId:auctionWinner.productId
