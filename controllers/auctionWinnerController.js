@@ -53,6 +53,10 @@ exports.getAuctionWin = async (req, res) => {
   try {
     const { id } = req.params;
     const auctionWinner = await AuctionModel.findOne({ productId: id }).sort({ _id: -1 }).limit(1)
+    const PodParm={
+      ownersId:auctionWinner.userId,
+    }
+    await ProductModel.findByIdAndUpdate(auctionWinner.productId,PodParm, { new: true });
     const params={
       userId:auctionWinner.userId,
       productId:auctionWinner.productId
