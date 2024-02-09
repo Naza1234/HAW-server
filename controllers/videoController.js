@@ -24,7 +24,7 @@ exports.createVideo = async (req, res) => {
         const newProduct = await VideoModel.create(ProductData);
         res.status(201).json(newProduct._id);
     } catch (error) {
-        res.status(500).json({ message: 'Internal server error' });
+        res.status(500).json({ message:error.message});
     }
 };
 const fileStorage=multer.diskStorage({
@@ -39,7 +39,7 @@ exports.upload=multer({
     storage:fileStorage,
      limits:{fileSize: '10000000'},
     fileFilter: (req, file, callback) => {
-        const acceptableExtensions = ['gif', 'mp4', 'avi', 'mov', 'mkv', 'webm'];
+        const acceptableExtensions = ['*'];
         if (!(acceptableExtensions.some(extension => 
             path.extname(file.originalname).toLowerCase() === `.${extension}`)
         )) {
