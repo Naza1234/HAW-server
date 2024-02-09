@@ -29,7 +29,8 @@ const ProductSchema = mongoose.Schema({
     ownersId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
+        required: true,
+        default:"loading..."
     },
     price: {
         type:Number,
