@@ -38,16 +38,17 @@ exports.deleteAuctionWinnerById = async (req, res) => {
 exports.getAuctionWins = async (req, res) => {
   try {
     const { id } = req.params;
-    const auctionWinner = await AuctionWinner.find({userId:id})
-    const Products=[]
+    const auctionWinner = await AuctionWinner.find({ userId: id });
+    const Products = [];
     for (const iterator of auctionWinner) {
-       const product=await products.findOne({_id :iterator.productId});
-       products.push(product)
+        const product = await products.findOne({ _id: iterator.productId });
+        Products.push(product); // Fixed the variable name from products to Products
     }
     res.status(200).json(Products);
-  } catch (error) {
+} catch (error) {
     res.status(500).json({ message: error.message });
-  }
+}
+
 };
 
 exports.getAuctionWin = async (req, res) => {
